@@ -55,10 +55,10 @@ animate: null||false 不压缩直接输出
 
 class Jimg {
     constructor(file, conf) {
-        this._ = '20210315';
+        this._ = '20221108';
         this.canvas = file || null;
         this.config = conf || {};
-        console.log('https://github.com/aaa-aa-a/jimg' + this._);
+        console.log('https://github.com/aaa-aa-a/jimg#' + this._);
     };
     code(part, exec) {
         if (typeof (exec) == 'undefined') { return [...new Uint8Array(part)].map(b => b.toString(16).padStart(2, '0')).join(''); }
@@ -228,7 +228,10 @@ class Jimg {
         };
         if (this.config._dataurl) { this.canvas = this.canvas.toDataURL(cfg.format || 'image/png', cfg.quality || 0.9); return Promise.resolve(this); }
         else {
-            this.canvas = await new Promise((resolve, reject) => { this.canvas.toBlob(function (blob) { resolve(blob); }, cfg.format || 'image/png', cfg.quality || 0.9); });
+            this.canvas = await new Promise((resolve, reject) => {
+                try { this.canvas.toBlob(function (blob) { resolve(blob); }, cfg.format || 'image/png', cfg.quality || 0.9); }
+                catch (e) { console.log(e); }
+            });
             return Promise.resolve(this);
         };
     };
