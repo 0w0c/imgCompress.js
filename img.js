@@ -53,12 +53,12 @@ animate: null||false 不压缩直接输出
 // gif: {normal:"_webp",nowebp:"_jpg",animate:false},
 // webp: {normal:"_webp",nowebp:"_png",animate:false},
 
-class Jimg {
+class ImgJs {
     constructor(file, conf) {
         this._ = '20221108';
         this.canvas = file || null;
         this.config = conf || {};
-        console.log('https://github.com/aaa-aa-a/jimg#' + this._);
+        console.log('https://github.com/QuickWorldWeb/img.js#' + this._);
     };
     code(part, exec) {
         if (typeof (exec) == 'undefined') { return [...new Uint8Array(part)].map(b => b.toString(16).padStart(2, '0')).join(''); }
