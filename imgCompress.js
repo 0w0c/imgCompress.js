@@ -53,7 +53,7 @@ animate: null||false 不压缩直接输出
 // gif: {normal:"_webp",nowebp:"_jpg",animate:false},
 // webp: {normal:"_webp",nowebp:"_png",animate:false},
 
-class ImgJs {
+class imgCompress {
     constructor(file, conf) {
         this._ = '20221108';
         this.canvas = file || null;
